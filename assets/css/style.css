@@ -1,0 +1,92 @@
+.navbar {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.card {
+    transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+[data-bs-theme="light"] .card {
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #212529 !important;
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #1e2125 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #f8f9fa !important;
+}
+
+[data-bs-theme="light"] body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+[data-bs-theme="dark"] body {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] footer {
+    background-color: #1a1d20 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-bs-theme="light"] footer {
+    background-color: #e9ecef !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+#projects .card-title {
+    min-height: 3.5rem; /* Forces all titles to take up the same vertical space */
+    display: flex;
+    align-items: center; /* Centers shorter titles vertically */
+    margin-bottom: 0.75rem !important; /* Consistent gap before the status pill */
+}
+
+.cursor {
+    font-weight: 200;
+    color: var(--bs-primary);
+    animation: blink 1s infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Primary Button (View My Projects) */
+.btn-primary {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+}
+
+/* Secondary/Outline Button (Read My Résumé) */
+.btn-secondary {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-secondary:hover {
+    /* background-color: white !important;
+    color: #212529 !important; Dark text for contrast against white background */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
