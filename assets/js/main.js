@@ -56,3 +56,4 @@ function reveal() {
 }
 
 window.addEventListener("scroll", reveal);
+reveal(); // run once in case user starts mid page
