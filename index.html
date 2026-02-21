@@ -17,7 +17,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-        
+
         .card {
             transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
         }
@@ -42,6 +42,18 @@
         [data-bs-theme="dark"] body {
             background-color: #212529;
             color: #f8f9fa;
+        }
+
+        .cursor {
+            font-weight: 200;
+            color: var(--bs-primary);
+            animation: blink 1s infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
     </style>
@@ -81,7 +93,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <h1 class="display-4 display-md-3 fw-bold mb-3">
-                        Hi, I'm <span class="text-primary">Andrew</span>
+                        <span id="typing-prefix"></span><span id="typing-name" class="text-primary"></span><span class="cursor">|</span>
                     </h1>
                     <h2 class="h3 mb-4 text-secondary">
                         Computer Science Senior @ Tennessee Tech University
@@ -343,6 +355,38 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prefixText = "Hi, I'm ";
+            const nameText = "Andrew";
+            const speed = 100; // Typing speed in ms
+            
+            const prefixElement = document.getElementById('typing-prefix');
+            const nameElement = document.getElementById('typing-name');
+
+            let i = 0;
+            let j = 0;
+
+            function typePrefix() {
+                if (i < prefixText.length) {
+                    prefixElement.innerHTML += prefixText.charAt(i);
+                    i++;
+                    setTimeout(typePrefix, speed);
+                } else {
+                    // Once prefix is done, start typing the name
+                    typeName();
+                }
+            }
+
+            function typeName() {
+                if (j < nameText.length) {
+                    nameElement.innerHTML += nameText.charAt(j);
+                    j++;
+                    setTimeout(typeName, speed);
+                }
+            }
+
+            typePrefix();
+        });
         function toggleTheme() {
             const html = document.documentElement;
             const icon = document.getElementById('theme-icon');
