@@ -5,26 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Johnson | Software Engineer</title>
     <meta name="description" content="Portfolio of Andrew Johnson, a Computer Science Senior at Tennessee Tech specializing in Embedded Systems and Machine Learning.">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 
+                        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', savedTheme);
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
-        .navbar {
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-    
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 75px;
-        }
         .card {
-            background-color: #1e2125 !important; /* A deep, professional slate gray */
+            transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        }
+
+        [data-bs-theme="light"] .card {
+            background-color: #ffffff !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+            color: #212529 !important;
+        }
+
+        [data-bs-theme="dark"] .card {
+            background-color: #1e2125 !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #ffffff !important;
+        }
+
+        [data-bs-theme="light"] body {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        [data-bs-theme="dark"] body {
+            background-color: #212529;
+            color: #ffffff;
         }
     </style>
+    </style>
 </head>
-<body class="bg-dark text-white">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 sticky-top border-bottom border-secondary border-opacity-25">
+<body>
+    <nav class="navbar navbar-expand-lg bg-opacity-75 sticky-top border-bottom border-secondary border-opacity-25">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">
                 <span class="text-primary font-monospace">&lt;</span> Andrew Johnson <span class="text-primary font-monospace">/&gt;</span>
@@ -43,6 +61,11 @@
                     <li class="nav-item ms-lg-3">
                     <a class="btn bg-primary text-white btn-sm mt-1" href="#contactMe">Contact me</a>
                     </li>
+                    <li class="nav-item ms-lg-3 d-flex align-items-center">
+                        <button class="btn btn-link nav-link theme-toggle" id="bd-theme" onclick="toggleTheme()">
+                            <i class="bi bi-sun-fill" id="theme-icon"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -59,8 +82,8 @@
                         Computer Science Senior @ Tennessee Tech University
                     </h2>
                     
-                    <p class="lead mb-5 text-white-50 pe-lg-5">
-                        Bridging the gaps between <b>Embedded Systems</b>, <b>Machine Learning</b>, and <b>Modern Web Applications</b>. 
+                    <p class="lead mb-5  pe-lg-5">
+                        <b>Bridging the gaps between Embedded Systems, Machine Learning, and Modern Web Applications.</b>
                         
                     </p>
                     <!-- <p class="lead mb-5 opacity-50">
@@ -81,25 +104,25 @@
     </section>
 
     <!-- Work Experience -->
-    <section id="experience" class="py-5 bg-dark border-top border-secondary border-opacity-10">
+    <section id="experience" class="py-5 border-top border-secondary border-opacity-10">
         <div class="container py-5">
             <h2 class="display-5 fw-bold mb-5 text-center">Work <span class="text-primary">Experience</span></h2>
             
             <div class="row justify-content-center">
                 <div class="col-lg-9">
                     
-                    <div class="card  text-white mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm">
                         <div class="card-body p-4">
                             <div class="d-flex flex-column flex-md-row justify-content-between mb-3">
                                 <div>
                                     <h3 class="h4 fw-bold mb-1">Embedded Software Co-op</h3>
                                     <div class="text-primary fw-semibold">Adtran | Huntsville, AL</div>
                                 </div>
-                                <div class="text-white-50 mt-2 mt-md-0">
+                                <div class=" mt-2 mt-md-0">
                                     <i class="bi bi-calendar3 me-2"></i>Aug 2025 — Dec 2025
                                 </div>
                             </div>
-                            <ul class="text-white-50 mb-0">
+                            <ul class=" mb-0">
                                 <li class="mb-2">Developed automated test scenarios using Python and Behave to validate traffic policing and QoS functionality, ensuring hardware alignment with product specifications.</li>
                                 <li class="mb-2">Optimized the test execution process by implementing a dynamic tagging system, allowing developers to isolate specific feature tests and significantly reduce execution time.</li>
                                 <li class="mb-2">Diagnosed and resolved complex integration issues, including a byte-count discrepancy on aggregation switches, by identifying and mitigating root-cause vendor hardware constraints.</li>
@@ -108,18 +131,18 @@
                         </div>
                     </div>
 
-                    <div class="card  text-white shadow-sm">
+                    <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <div class="d-flex flex-column flex-md-row justify-content-between mb-3">
                                 <div>
                                     <h3 class="h4 fw-bold mb-1">Math and Computer Science Tutor</h3>
                                     <div class="text-primary fw-semibold">Pellissippi State Community College | Virtual</div>
                                 </div>
-                                <div class="text-white-50 mt-2 mt-md-0">
+                                <div class=" mt-2 mt-md-0">
                                     <i class="bi bi-calendar3 me-2"></i>January 2025 — May 2025
                                 </div>
                             </div>
-                            <ul class="text-white-50 mb-0">
+                            <ul class=" mb-0">
                                 <li class="mb-2">Guided students in C++, data structures, algorithms, and calculus, adapting teaching for student needs.</li>
                                 <li class="mb-2">Provided real-time feedback to improve students' problem-solving methodologies and code comprehension.</li>
                             </ul>
@@ -139,7 +162,7 @@
             <!-- Range Sentinel -->
             <div class="row g-4">
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100  text-white shadow-sm">
+                <div class="card h-100 shadow-sm">
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between mb-3">
                             <i class="bi bi-shield-lock text-primary fs-2"></i>
@@ -160,7 +183,7 @@
             
             <!-- Network Degradation Simulator -->
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100  text-white shadow-sm">
+                <div class="card h-100 shadow-sm">
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between mb-3">
                             <i class="bi bi-router text-primary fs-2"></i>
@@ -180,7 +203,7 @@
 
             <!-- Color Palette Extractor -->
              <div class="col-md-6 col-lg-4">
-                <div class="card h-100  text-white shadow-sm">
+                <div class="card h-100 shadow-sm">
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between mb-3">
                             <i class="bi bi-palette text-primary fs-2"></i>
@@ -202,19 +225,19 @@
     </section>
     
     <!-- Skills -->
-    <section id="skills" class="py-5 bg-dark">
+    <section id="skills" class="py-5">
         <div class="container py-5">
             <h2 class="display-5 fw-bold mb-5 text-center">Technical <span class="text-primary">Skills</span></h2>
             
             <!-- Embedded -->
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card h-100  text-white p-4">
+                    <div class="card h-100 p-4">
                         <div class="d-flex align-items-center mb-3">
                             <i class="bi bi-cpu text-primary fs-3 me-3"></i>
                             <h3 class="h5 fw-bold mb-0">Systems & Embedded</h3>
                         </div>
-                        <ul class="list-unstyled text-white-50 mb-0">
+                        <ul class="list-unstyled  mb-0">
                             <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>C / C++</li>
                             <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Linux</li>
                             <li><i class="bi bi-check2 text-primary me-2"></i>Bash / Vim</li>
@@ -230,7 +253,7 @@
                             <i class="bi bi-graph-up-arrow text-primary fs-3 me-3"></i>
                             <h3 class="h5 fw-bold mb-0">Data Science & Math</h3>
                         </div>
-                        <ul class="list-unstyled text-white-50 mb-0">
+                        <ul class="list-unstyled  mb-0">
                             <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Python (Pandas, NumPy, Scikit-learn)</li>
                             <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Matplotlib / Seaborn</li>
                             <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>R / R-Markdown</li>
@@ -246,7 +269,7 @@
                             <i class="bi bi-terminal text-primary fs-3 me-3"></i>
                             <h3 class="h5 fw-bold mb-0">Web & Tools</h3>
                         </div>
-                        <ul class="list-unstyled text-white-50 mb-0">
+                        <ul class="list-unstyled mb-0">
                             <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>HTML / CSS / JS</li>
                             <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Bootstrap / ChartJS / DataTables</li>
                             <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Git / GitHub</li>
@@ -257,7 +280,7 @@
         </div>
     </section>
 
-    <footer class="py-5 bg-dark border-top border-secondary border-opacity-25 mt-5">
+    <footer class="py-5 border-top border-secondary border-opacity-25 mt-5">
         <div class="container">
             <div class="row g-4">
                 
@@ -265,7 +288,7 @@
                     <div class="d-flex align-items-center fw-bold mb-3">
                         <span class="text-primary font-monospace me-1">&lt;</span> Andrew Johnson <span class="text-primary font-monospace ms-1">/&gt;</span>
                     </div>
-                    <p class="text-white-50 small pe-lg-5">
+                    <p class="small pe-lg-5">
                         Computer Science Senior with a minor in Mathematics at Tennessee Tech University with co-op experience in Embedded Software. Experienced in embedded software development and mathematical modelings. Preparing for a December 2026 graduation and seeking full-time roles in software engineering.
                     </p>
                 </div>
@@ -273,9 +296,9 @@
                 <div class="col-lg-3 col-md-6">
                     <h6 class="fw-bold mb-3">Navigation</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none small transition-link">About</a></li>
-                        <li class="mb-2"><a href="#projects" class="text-white-50 text-decoration-none small transition-link">Projects</a></li>
-                        <li class="mb-2"><a href="#experience" class="text-white-50 text-decoration-none small transition-link">Experience</a></li>
+                        <li class="mb-2"><a href="#about" class="text-decoration-none small transition-link">About</a></li>
+                        <li class="mb-2"><a href="#projects" class="text-decoration-none small transition-link">Projects</a></li>
+                        <li class="mb-2"><a href="#experience" class="text-decoration-none small transition-link">Experience</a></li>
                     </ul>
                 </div>
 
@@ -283,17 +306,17 @@
                     <h6 class="fw-bold mb-3">Connect</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <a href="mailto:andrewjohnson11235@gmail.com" class="text-white-50 text-decoration-none small d-flex align-items-center transition-link">
+                            <a href="mailto:andrewjohnson11235@gmail.com" class="text-decoration-none small d-flex align-items-center transition-link">
                                 <i class="bi bi-envelope me-2"></i> andrewjohnson11235@gmail.com
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="https://linkedin.com/in/andrew-garrett-j" target="_blank" class="text-white-50 text-decoration-none small d-flex align-items-center transition-link">
+                            <a href="https://linkedin.com/in/andrew-garrett-j" target="_blank" class="text-decoration-none small d-flex align-items-center transition-link">
                                 <i class="bi bi-link-45deg me-2"></i> LinkedIn
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="https://github.com/drew-1618" target="_blank" class="text-white-50 text-decoration-none small d-flex align-items-center transition-link">
+                            <a href="https://github.com/drew-1618" target="_blank" class="text-decoration-none small d-flex align-items-center transition-link">
                                 <i class="bi bi-github me-2"></i> GitHub
                             </a>
                         </li>
@@ -305,7 +328,7 @@
             <hr class="my-4 border-secondary border-opacity-25">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0 text-white-50 small">
+                    <p class="mb-0 small">
                         &copy; 2026 Andrew Johnson
                     </p>
                 </div>
@@ -314,5 +337,19 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const currentTheme = html.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update Icon
+            icon.className = newTheme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+        }
+    </script>
 </body>
 </html>
