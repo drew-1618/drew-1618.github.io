@@ -45,6 +45,23 @@
             color: #f8f9fa;
         }
 
+        [data-bs-theme="dark"] footer {
+            background-color: #1a1d20 !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+        }
+
+        [data-bs-theme="light"] footer {
+            background-color: #e9ecef !important;
+            border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+        }
+
+        #projects .card-title {
+            min-height: 3.5rem; /* Forces all titles to take up the same vertical space */
+            display: flex;
+            align-items: center; /* Centers shorter titles vertically */
+            margin-bottom: 0.75rem !important; /* Consistent gap before the status pill */
+        }
+
         .cursor {
             font-weight: 200;
             color: var(--bs-primary);
