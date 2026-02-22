@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-opacity-75 sticky-top border-bottom border-secondary border-opacity-25">
@@ -22,9 +22,21 @@
                 <span class="text-primary font-monospace">&lt;</span> Andrew Johnson <span class="text-primary font-monospace">/&gt;</span>
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="d-flex align-items-center order-lg-3">
+                <button class="btn btn-link nav-link theme-toggle ms-lg-4 me-2"
+                    id="bd-theme"
+                    onclick="toggleTheme()"
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="bottom" 
+                    title="Switch to Dark Mode">
+                    <i class="bi bi-sun-fill" id="theme-icon"></i>
+                </button>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -34,11 +46,6 @@
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item ms-lg-3">
                     <a class="btn bg-primary text-white btn-sm mt-1" href="#contactMe">Contact me</a>
-                    </li>
-                    <li class="nav-item ms-lg-3 d-flex align-items-center">
-                        <button class="btn btn-link nav-link theme-toggle" id="bd-theme" onclick="toggleTheme()">
-                            <i class="bi bi-sun-fill" id="theme-icon"></i>
-                        </button>
                     </li>
                 </ul>
             </div>
@@ -308,6 +315,6 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

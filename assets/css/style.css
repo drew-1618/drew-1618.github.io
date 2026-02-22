@@ -1,6 +1,49 @@
 .navbar {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(var(--bs-body-bg-rgb), 0.9) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: background-color 0.3s ease
+}
+
+[data-bs-theme="light"] .navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-bs-theme="dark"] .navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar-toggler {
+    transition: all 0.3s ease;
+    border: 1px solid transparent !important;
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+    transform: scale(1.05);
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+    filter: brightness(0) saturate(100%) invert(39%) sepia(96%) show(43%) saturate(5835%) hue-rotate(214deg) brightness(101%) contrast(101%); 
+}
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+    outline: 0;
+}
+
+.nav-item .btn.bg-primary:hover {
+    background-color: #0b5ed7 !important;
+}
+
+.nav-item .btn.bg-primary {
+    transition: all 0.3s ease-in-out;
 }
 
 .card {
@@ -8,9 +51,9 @@
 }
 
 [data-bs-theme="light"] .card {
-    background-color: #ffffff !important;
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
     color: #212529 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
 [data-bs-theme="dark"] .card {
@@ -39,11 +82,15 @@
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
+section {
+    scroll-margin-top: 16rem; 
+    padding: 4rem 0;
+}
+
 #projects .card-title {
-    min-height: 3.5rem; /* Forces all titles to take up the same vertical space */
+    min-height: 4rem; 
     display: flex;
-    align-items: center; /* Centers shorter titles vertically */
-    margin-bottom: 0.75rem !important; /* Consistent gap before the status pill */
+    align-items: center;
 }
 
 .cursor {
@@ -58,32 +105,30 @@
     50% { opacity: 0; }
 }
 
-/* Primary Button (View My Projects) */
 .btn-primary {
     transition: all 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
 }
 
-/* Secondary/Outline Button (Read My Résumé) */
 .btn-secondary {
     transition: all 0.3s ease-in-out;
 }
 
 .btn-secondary:hover {
-    /* background-color: white !important;
-    color: #212529 !important; Dark text for contrast against white background */
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+body, .card, .navbar, .nav-link, footer {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .reveal.active {
