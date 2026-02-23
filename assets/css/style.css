@@ -6,10 +6,12 @@
 }
 
 [data-bs-theme="light"] .navbar {
+    background-color: rgba(233, 236, 239, 0.8) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 [data-bs-theme="dark"] .navbar {
+    background-color: rgba(26, 29, 32, 0.8) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
