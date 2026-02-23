@@ -52,6 +52,25 @@
     transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
+.badge.rounded-pill {
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+#projects .card-text {
+    min-height: 6rem;
+    margin-bottom: 1.5rem;
+}
+
+.mt-auto-pills {
+    margin-top: auto;
+}
+
 [data-bs-theme="light"] .card {
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
     color: #212529 !important;
