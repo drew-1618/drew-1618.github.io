@@ -133,3 +133,13 @@ window.addEventListener('scroll', () => {
 
 // Initial run for reveal
 reveal();
+
+window.onload = function() {
+    const user = "andrewjohnson11235";
+    const domain = "gmail.com";
+    const element = document.getElementById('email-link');
+    const display = document.getElementById('email-display');
+
+    element.href = "mailto:" + user + "@" + domain;
+    display.innerText = user + "@" + domain;
+};
